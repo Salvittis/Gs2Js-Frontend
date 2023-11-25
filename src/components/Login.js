@@ -1,7 +1,7 @@
-// Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
+import './css/login.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -32,6 +32,7 @@ const Login = () => {
 
                 sessionStorage.setItem('usuario', JSON.stringify(usuarioEncontrado));
                 navigate('/main');
+                window.location.reload();
             } else {
                 console.log('Nenhum usuário encontrado.');
                 alert('Credenciais não encontradas. Verifique suas informações de login.');
@@ -43,7 +44,7 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div className="login-container">
             <h1>Login</h1>
             <label>Email: </label>
             <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />

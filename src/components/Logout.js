@@ -1,29 +1,28 @@
-// Logout.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import "./css/logout.css"
 const Logout = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        // Limpar os dados da sessão, por exemplo:
         sessionStorage.removeItem('usuario');
-
-        // Navegar de volta para a tela de login ou outra tela inicial
         navigate('/');
+        window.location.reload();
     };
     const handleLogoutN = () => {
         navigate('/main');
+        window.location.reload();
     };
 
     return (
-        <div>
+
+        <div class="logout-container">
             <h1>Logout</h1>
-            <p>Tem certeza que deseja sair?</p>
+            <p class="sair">Tem certeza que deseja sair?</p>
             <button onClick={handleLogout}>Sim</button>
-            <button onClick={handleLogoutN}>Não</button>
+            <button class="secondary" onClick={handleLogoutN}>Não</button>
         </div>
+
     );
 };
-
 export default Logout;
