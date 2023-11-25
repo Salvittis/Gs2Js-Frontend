@@ -10,7 +10,7 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await api.get('https://gs2-js-json-server.vercel.app/dados');
+            const response = await api.get('/dados');
 
             console.log('Dados recebidos:', response.data);
 
